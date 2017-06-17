@@ -7,29 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F0270D7E1EF53870004AED1A /* IRScrubbableAnimateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0270D7D1EF53870004AED1A /* IRScrubbableAnimateVC.swift */; };
-		F0270D801EF539B3004AED1A /* IRScrubbableAnimationStrategies.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0270D7F1EF539B3004AED1A /* IRScrubbableAnimationStrategies.swift */; };
+		F0270D841EF54145004AED1A /* Animations in Resources */ = {isa = PBXBuildFile; fileRef = F0270D831EF54145004AED1A /* Animations */; };
+		F0270D861EF54189004AED1A /* ScrubbableAnimations in Resources */ = {isa = PBXBuildFile; fileRef = F0270D851EF54189004AED1A /* ScrubbableAnimations */; };
 		F07FBC371EF4A6D80009AF6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07FBC361EF4A6D80009AF6E /* AppDelegate.swift */; };
 		F07FBC3C1EF4A6D80009AF6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F07FBC3A1EF4A6D80009AF6E /* Main.storyboard */; };
 		F07FBC3E1EF4A6D80009AF6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F07FBC3D1EF4A6D80009AF6E /* Assets.xcassets */; };
 		F07FBC411EF4A6D80009AF6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F07FBC3F1EF4A6D80009AF6E /* LaunchScreen.storyboard */; };
-		F07FBC491EF4ACA70009AF6E /* IRAnimateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07FBC481EF4ACA70009AF6E /* IRAnimateVC.swift */; };
 		F0AFB6C41EF4D8AA0093EA3D /* IRAnimationsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AFB6C31EF4D8AA0093EA3D /* IRAnimationsTVC.swift */; };
-		F0BA8B4D1EF4C26D003F5717 /* IRAnimationStrategies.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BA8B4C1EF4C26D003F5717 /* IRAnimationStrategies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F0270D7D1EF53870004AED1A /* IRScrubbableAnimateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRScrubbableAnimateVC.swift; sourceTree = "<group>"; };
-		F0270D7F1EF539B3004AED1A /* IRScrubbableAnimationStrategies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRScrubbableAnimationStrategies.swift; sourceTree = "<group>"; };
+		F0270D831EF54145004AED1A /* Animations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Animations; sourceTree = "<group>"; };
+		F0270D851EF54189004AED1A /* ScrubbableAnimations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ScrubbableAnimations; sourceTree = "<group>"; };
 		F07FBC331EF4A6D80009AF6E /* IRUIViewPropertyAnimator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IRUIViewPropertyAnimator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F07FBC361EF4A6D80009AF6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F07FBC3B1EF4A6D80009AF6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F07FBC3D1EF4A6D80009AF6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F07FBC401EF4A6D80009AF6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F07FBC421EF4A6D80009AF6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F07FBC481EF4ACA70009AF6E /* IRAnimateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRAnimateVC.swift; sourceTree = "<group>"; };
 		F0AFB6C31EF4D8AA0093EA3D /* IRAnimationsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRAnimationsTVC.swift; sourceTree = "<group>"; };
-		F0BA8B4C1EF4C26D003F5717 /* IRAnimationStrategies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRAnimationStrategies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +60,8 @@
 			children = (
 				F07FBC361EF4A6D80009AF6E /* AppDelegate.swift */,
 				F0AFB6C31EF4D8AA0093EA3D /* IRAnimationsTVC.swift */,
-				F07FBC481EF4ACA70009AF6E /* IRAnimateVC.swift */,
-				F0BA8B4C1EF4C26D003F5717 /* IRAnimationStrategies.swift */,
-				F0270D7D1EF53870004AED1A /* IRScrubbableAnimateVC.swift */,
-				F0270D7F1EF539B3004AED1A /* IRScrubbableAnimationStrategies.swift */,
+				F0270D831EF54145004AED1A /* Animations */,
+				F0270D851EF54189004AED1A /* ScrubbableAnimations */,
 				F07FBC3A1EF4A6D80009AF6E /* Main.storyboard */,
 				F07FBC3D1EF4A6D80009AF6E /* Assets.xcassets */,
 				F07FBC3F1EF4A6D80009AF6E /* LaunchScreen.storyboard */,
@@ -136,6 +130,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F07FBC411EF4A6D80009AF6E /* LaunchScreen.storyboard in Resources */,
+				F0270D841EF54145004AED1A /* Animations in Resources */,
+				F0270D861EF54189004AED1A /* ScrubbableAnimations in Resources */,
 				F07FBC3E1EF4A6D80009AF6E /* Assets.xcassets in Resources */,
 				F07FBC3C1EF4A6D80009AF6E /* Main.storyboard in Resources */,
 			);
@@ -148,11 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F07FBC491EF4ACA70009AF6E /* IRAnimateVC.swift in Sources */,
-				F0270D801EF539B3004AED1A /* IRScrubbableAnimationStrategies.swift in Sources */,
 				F07FBC371EF4A6D80009AF6E /* AppDelegate.swift in Sources */,
-				F0270D7E1EF53870004AED1A /* IRScrubbableAnimateVC.swift in Sources */,
-				F0BA8B4D1EF4C26D003F5717 /* IRAnimationStrategies.swift in Sources */,
 				F0AFB6C41EF4D8AA0093EA3D /* IRAnimationsTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
