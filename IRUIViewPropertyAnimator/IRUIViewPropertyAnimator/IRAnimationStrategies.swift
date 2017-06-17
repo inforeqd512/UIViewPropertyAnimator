@@ -6,6 +6,7 @@ import UIKit
 
 enum IRAnimationStrategyType {
     case SingleProperty
+    case MultipleBlocks
 }
 
 protocol IRAnimationStrategy {
@@ -13,7 +14,10 @@ protocol IRAnimationStrategy {
 }
 
 struct IRAnimationStrategyFactory {
-    let model = [IRAnimationStrategyType.SingleProperty : SinglePropertyStrategy()]
+    let model : [IRAnimationStrategyType : IRAnimationStrategy] =
+        [IRAnimationStrategyType.SingleProperty : SinglePropertyStrategy(),
+         IRAnimationStrategyType.MultipleBlocks : MultipleBlocksStrategy()
+    ]
 
     func strategyFor(type: IRAnimationStrategyType) -> IRAnimationStrategy {
         return model[type]!
@@ -32,3 +36,21 @@ struct SinglePropertyStrategy : IRAnimationStrategy{
         animator.startAnimation()
     }
 }
+
+struct MultipleBlocksStrategy : IRAnimationStrategy{
+    func animate(view: UIView) {
+        let animator = UIViewPropertyAnimator(duration: 2.0, curve: .easeInOut) {
+            [unowned view] in
+            view.alpha = 0.0
+        }
+
+        animator.addAnimations {
+            let currentCenter = view.center
+            let finalCenter = CGPoint(x: currentCenter.x + 250.0, y: currentCenter.y)
+            view.center = finalCenter
+        }
+
+        animator.startAnimation()
+    }
+}
+

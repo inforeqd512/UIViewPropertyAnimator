@@ -6,7 +6,9 @@ import UIKit
 
 class IRAnimationsTVC: UITableViewController {
 
-    let model = [IRAnimationStrategyType.SingleProperty]
+    let model = [IRAnimationStrategyType.SingleProperty,
+                 IRAnimationStrategyType.MultipleBlocks
+    ]
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "ShowAnimation", sender: indexPath)
