@@ -1,8 +1,4 @@
 //
-//  AppDelegate.swift
-//  IRUIViewPropertyAnimator
-//
-//  Created by Suneel Chalisgaonkar on 17/6/17.
 //  Copyright © 2017 Info Reqd. All rights reserved.
 //
 
