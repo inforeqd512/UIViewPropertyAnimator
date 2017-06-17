@@ -29,7 +29,7 @@ struct IRAnimationStrategyFactory {
 }
 
 
-func translate(view: UIView) {
+private func translate(view: UIView) {
     let currentCenter = view.center
     let finalCenter = CGPoint(x: currentCenter.x + 250.0, y: currentCenter.y)
     view.center = finalCenter
