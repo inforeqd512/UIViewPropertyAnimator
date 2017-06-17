@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -72,13 +73,27 @@
                     <view key="view" contentMode="scaleToFill" id="Ssf-ld-Of7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFi-bG-jYn" userLabel="AnimatingView">
+                                <rect key="frame" x="9.5" y="308.5" width="75" height="50"/>
+                                <color key="backgroundColor" red="0.33650716145833331" green="0.74484592013888884" blue="0.71023220486111116" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="FnH-hu-Eto"/>
+                                    <constraint firstAttribute="height" constant="50" id="Jes-ia-xcH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MFi-bG-jYn" firstAttribute="centerX" secondItem="Ssf-ld-Of7" secondAttribute="centerX" multiplier="0.25" id="9VK-j2-YyG"/>
+                            <constraint firstItem="MFi-bG-jYn" firstAttribute="centerY" secondItem="Ssf-ld-Of7" secondAttribute="centerY" id="zzD-R6-SW8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Single Property" id="TK4-HF-DxB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOk-JN-Nby" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1708" y="141"/>
+            <point key="canvasLocation" x="1708" y="140.77961019490255"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Smg-RA-kEv">
