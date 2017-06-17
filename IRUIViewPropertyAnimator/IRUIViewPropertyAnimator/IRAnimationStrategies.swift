@@ -6,6 +6,7 @@ import UIKit
 
 enum IRAnimationStrategyType {
     case SingleProperty
+    case CustomBezier
     case MultipleBlocks
 }
 
@@ -16,6 +17,7 @@ protocol IRAnimationStrategy {
 struct IRAnimationStrategyFactory {
     let model : [IRAnimationStrategyType : IRAnimationStrategy] =
         [IRAnimationStrategyType.SingleProperty : SinglePropertyStrategy(),
+         IRAnimationStrategyType.CustomBezier : CustomBezierStrategy(),
          IRAnimationStrategyType.MultipleBlocks : MultipleBlocksStrategy()
     ]
 
@@ -33,6 +35,20 @@ struct SinglePropertyStrategy : IRAnimationStrategy{
             view.center = finalCenter
         }
 
+        animator.startAnimation()
+    }
+}
+
+struct CustomBezierStrategy : IRAnimationStrategy{
+    func animate(view: UIView) {
+        let animator = UIViewPropertyAnimator(duration: 1.0,
+                                              controlPoint1: CGPoint(x: 0.1, y: 0.5) ,
+                                              controlPoint2: CGPoint(x: 0.5, y: 0.2)) { 
+            [unowned view] in
+            let currentCenter = view.center
+            let finalCenter = CGPoint(x: currentCenter.x + 250.0, y: currentCenter.y)
+            view.center = finalCenter
+        }
         animator.startAnimation()
     }
 }

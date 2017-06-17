@@ -7,6 +7,7 @@ import UIKit
 class IRAnimationsTVC: UITableViewController {
 
     let model = [IRAnimationStrategyType.SingleProperty,
+                 IRAnimationStrategyType.CustomBezier,
                  IRAnimationStrategyType.MultipleBlocks
     ]
 
