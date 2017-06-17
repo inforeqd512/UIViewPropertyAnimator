@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="1055.2" y="142.57871064467767"/>
         </scene>
-        <!--Single Property-->
+        <!--Single PropertyVC-->
         <scene sceneID="69T-8m-be8">
             <objects>
-                <viewController id="7nD-qn-sUi" sceneMemberID="viewController">
+                <viewController id="7nD-qn-sUi" customClass="IRSinglePropertyVC" customModule="IRUIViewPropertyAnimator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TA9-bO-0OZ"/>
                         <viewControllerLayoutGuide type="bottom" id="YeI-tT-Hlc"/>
@@ -89,7 +89,9 @@
                             <constraint firstItem="MFi-bG-jYn" firstAttribute="centerY" secondItem="Ssf-ld-Of7" secondAttribute="centerY" id="zzD-R6-SW8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Single Property" id="TK4-HF-DxB"/>
+                    <connections>
+                        <outlet property="animatingView" destination="MFi-bG-jYn" id="6SS-aa-5zF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOk-JN-Nby" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
