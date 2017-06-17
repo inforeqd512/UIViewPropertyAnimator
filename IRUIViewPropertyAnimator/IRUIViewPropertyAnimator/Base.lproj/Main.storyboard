@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
-                            <tableViewSection id="sjA-IF-mh6">
+                            <tableViewSection headerTitle="Just Animations" id="sjA-IF-mh6">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="kpa-Rd-ZlK" detailTextLabel="ena-Us-Tpd" style="IBUITableViewCellStyleSubtitle" id="gU0-7b-uq3">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -119,6 +119,34 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Scrubbable Animations" id="SGZ-1V-aHs">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="TAB-dv-Jv2" detailTextLabel="q8X-LS-ELw" style="IBUITableViewCellStyleSubtitle" id="Ry9-Jt-k6h">
+                                        <rect key="frame" x="0.0" y="232" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ry9-Jt-k6h" id="Qn5-J0-5CG">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Linear Scrubbable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TAB-dv-Jv2">
+                                                    <rect key="frame" x="15" y="5" width="139" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Use slider to scrub animation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="q8X-LS-ELw">
+                                                    <rect key="frame" x="15" y="25.5" width="165.5" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="zjr-fD-FXa" id="OCV-me-wjV"/>
@@ -128,6 +156,7 @@
                     <navigationItem key="navigationItem" title="Animations" id="5hO-gb-xCu"/>
                     <connections>
                         <segue destination="7nD-qn-sUi" kind="show" identifier="ShowAnimation" id="HcM-0Y-eeP"/>
+                        <segue destination="uV6-I1-Uor" kind="show" identifier="ShowScrubbableAnimation" id="Jfk-k2-QuS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MlT-Me-9ah" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -167,7 +196,65 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOk-JN-Nby" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2014" y="143"/>
+            <point key="canvasLocation" x="2013.5999999999999" y="142.57871064467767"/>
+        </scene>
+        <!--Scrubbable Animation-->
+        <scene sceneID="lCf-fX-ABF">
+            <objects>
+                <viewController title="Scrubbable Animation" id="uV6-I1-Uor" customClass="IRScrubbableAnimateVC" customModule="IRUIViewPropertyAnimator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ou6-GE-tha"/>
+                        <viewControllerLayoutGuide type="bottom" id="58C-Wi-W21"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EUK-aH-Qn4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3x-pB-QuV" userLabel="AnimatingView">
+                                <rect key="frame" x="9.5" y="308.5" width="75" height="50"/>
+                                <color key="backgroundColor" red="0.33650716149999998" green="0.74484592009999995" blue="0.71023220490000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="hY7-ba-P3q"/>
+                                    <constraint firstAttribute="width" constant="75" id="tpu-df-7ZB"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWL-FF-l5s" userLabel="Slider Container View">
+                                <rect key="frame" x="0.0" y="637" width="375" height="30"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9Oe-N5-SA9">
+                                        <rect key="frame" x="-2" y="0.0" width="379" height="31"/>
+                                        <connections>
+                                            <action selector="sliderTouchUp:" destination="uV6-I1-Uor" eventType="touchUpInside" id="yqJ-vr-oac"/>
+                                            <action selector="sliderValueChanged:" destination="uV6-I1-Uor" eventType="valueChanged" id="Mah-Mq-ywg"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.33650716149999998" green="0.74484592009999995" blue="0.71023220490000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="9Oe-N5-SA9" firstAttribute="leading" secondItem="VWL-FF-l5s" secondAttribute="leading" constant="10" id="6z4-Yr-bX8"/>
+                                    <constraint firstItem="9Oe-N5-SA9" firstAttribute="top" secondItem="VWL-FF-l5s" secondAttribute="top" id="gkh-Sl-VQe"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Oe-N5-SA9" secondAttribute="bottom" id="hUN-vB-aYg"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Oe-N5-SA9" secondAttribute="trailing" constant="10" id="sgG-k8-aeV"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="58C-Wi-W21" firstAttribute="top" secondItem="VWL-FF-l5s" secondAttribute="bottom" id="JXh-v2-r9l"/>
+                            <constraint firstAttribute="trailing" secondItem="VWL-FF-l5s" secondAttribute="trailing" id="Mus-x9-Xb7"/>
+                            <constraint firstItem="h3x-pB-QuV" firstAttribute="centerY" secondItem="EUK-aH-Qn4" secondAttribute="centerY" id="d0H-fQ-9Za"/>
+                            <constraint firstItem="VWL-FF-l5s" firstAttribute="leading" secondItem="EUK-aH-Qn4" secondAttribute="leading" id="jJB-oy-KaA"/>
+                            <constraint firstItem="h3x-pB-QuV" firstAttribute="centerX" secondItem="EUK-aH-Qn4" secondAttribute="centerX" multiplier="0.25" id="mbj-aI-8uj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="animatingView" destination="h3x-pB-QuV" id="t7G-Ak-8QJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a3u-uU-ZJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2014" y="813"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Smg-RA-kEv">
