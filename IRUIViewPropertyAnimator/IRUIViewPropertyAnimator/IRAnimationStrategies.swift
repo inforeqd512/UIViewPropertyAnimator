@@ -7,6 +7,7 @@ import UIKit
 enum IRAnimationStrategyType {
     case SingleProperty
     case CustomBezier
+    case SpringEffect
     case MultipleBlocks
 }
 
@@ -18,6 +19,7 @@ struct IRAnimationStrategyFactory {
     let model : [IRAnimationStrategyType : IRAnimationStrategy] =
         [IRAnimationStrategyType.SingleProperty : SinglePropertyStrategy(),
          IRAnimationStrategyType.CustomBezier : CustomBezierStrategy(),
+         IRAnimationStrategyType.SpringEffect : SpringEffectStrategy(),
          IRAnimationStrategyType.MultipleBlocks : MultipleBlocksStrategy()
     ]
 
@@ -51,6 +53,17 @@ struct CustomBezierStrategy : IRAnimationStrategy{
                                               controlPoint2: CGPoint(x: 0.5, y: 0.2)) { 
             [unowned view] in
             translate(view: view)
+
+        }
+        animator.startAnimation()
+    }
+}
+
+struct SpringEffectStrategy : IRAnimationStrategy{
+    func animate(view: UIView) {
+        let animator = UIViewPropertyAnimator(duration: 1.0, dampingRatio: 0.4) { 
+            [unowned view] in
+            translate(view: view)
         }
         animator.startAnimation()
     }
@@ -64,9 +77,7 @@ struct MultipleBlocksStrategy : IRAnimationStrategy{
         }
 
         animator.addAnimations {
-            let currentCenter = view.center
-            let finalCenter = CGPoint(x: currentCenter.x + 250.0, y: currentCenter.y)
-            view.center = finalCenter
+            translate(view: view)
         }
 
         animator.startAnimation()

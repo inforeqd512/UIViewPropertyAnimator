@@ -8,6 +8,7 @@ class IRAnimationsTVC: UITableViewController {
 
     let model = [IRAnimationStrategyType.SingleProperty,
                  IRAnimationStrategyType.CustomBezier,
+                 IRAnimationStrategyType.SpringEffect,
                  IRAnimationStrategyType.MultipleBlocks
     ]
 
