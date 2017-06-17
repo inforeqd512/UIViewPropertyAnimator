@@ -26,13 +26,18 @@ struct IRAnimationStrategyFactory {
     }
 }
 
+
+func translate(view: UIView) {
+    let currentCenter = view.center
+    let finalCenter = CGPoint(x: currentCenter.x + 250.0, y: currentCenter.y)
+    view.center = finalCenter
+}
+
 struct SinglePropertyStrategy : IRAnimationStrategy{
     func animate(view: UIView) {
         let animator = UIViewPropertyAnimator(duration: 1.0, curve: .easeInOut) {
             [unowned view] in
-            let currentCenter = view.center
-            let finalCenter = CGPoint(x: currentCenter.x + 250.0, y: currentCenter.y)
-            view.center = finalCenter
+            translate(view: view)
         }
 
         animator.startAnimation()
@@ -45,9 +50,7 @@ struct CustomBezierStrategy : IRAnimationStrategy{
                                               controlPoint1: CGPoint(x: 0.1, y: 0.5) ,
                                               controlPoint2: CGPoint(x: 0.5, y: 0.2)) { 
             [unowned view] in
-            let currentCenter = view.center
-            let finalCenter = CGPoint(x: currentCenter.x + 250.0, y: currentCenter.y)
-            view.center = finalCenter
+            translate(view: view)
         }
         animator.startAnimation()
     }
