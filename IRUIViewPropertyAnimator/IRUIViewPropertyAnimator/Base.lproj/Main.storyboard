@@ -24,18 +24,18 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gU0-7b-uq3" id="kTD-DP-aoH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Single Property" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kpa-Rd-ZlK">
-                                                    <rect key="frame" x="15" y="5" width="118" height="20.5"/>
+                                                    <rect key="frame" x="15" y="5" width="118" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Change the center property of a view" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ena-Us-Tpd">
-                                                    <rect key="frame" x="15" y="25.5" width="211" height="14.5"/>
+                                                    <rect key="frame" x="15" y="25" width="211" height="15"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -43,6 +43,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="7nD-qn-sUi" kind="show" id="Pmi-MG-LOh"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -57,6 +60,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MlT-Me-9ah" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1055.2" y="142.57871064467767"/>
+        </scene>
+        <!--Single Property-->
+        <scene sceneID="69T-8m-be8">
+            <objects>
+                <viewController id="7nD-qn-sUi" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TA9-bO-0OZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="YeI-tT-Hlc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ssf-ld-Of7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Single Property" id="TK4-HF-DxB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tOk-JN-Nby" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1708" y="141"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Smg-RA-kEv">
