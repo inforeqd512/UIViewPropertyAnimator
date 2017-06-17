@@ -221,7 +221,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWL-FF-l5s" userLabel="Slider Container View">
                                 <rect key="frame" x="0.0" y="637" width="375" height="30"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9Oe-N5-SA9">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9Oe-N5-SA9">
                                         <rect key="frame" x="-2" y="0.0" width="379" height="31"/>
                                         <connections>
                                             <action selector="sliderTouchUp:" destination="uV6-I1-Uor" eventType="touchUpInside" id="yqJ-vr-oac"/>
@@ -232,10 +232,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.33650716149999998" green="0.74484592009999995" blue="0.71023220490000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="9Oe-N5-SA9" firstAttribute="leading" secondItem="VWL-FF-l5s" secondAttribute="leading" id="6z4-Yr-bX8"/>
+                                    <constraint firstItem="9Oe-N5-SA9" firstAttribute="leading" secondItem="VWL-FF-l5s" secondAttribute="leading" constant="10" id="6z4-Yr-bX8"/>
                                     <constraint firstItem="9Oe-N5-SA9" firstAttribute="top" secondItem="VWL-FF-l5s" secondAttribute="top" id="gkh-Sl-VQe"/>
                                     <constraint firstAttribute="bottom" secondItem="9Oe-N5-SA9" secondAttribute="bottom" id="hUN-vB-aYg"/>
-                                    <constraint firstAttribute="trailing" secondItem="9Oe-N5-SA9" secondAttribute="trailing" id="sgG-k8-aeV"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Oe-N5-SA9" secondAttribute="trailing" constant="10" id="sgG-k8-aeV"/>
                                 </constraints>
                             </view>
                         </subviews>
