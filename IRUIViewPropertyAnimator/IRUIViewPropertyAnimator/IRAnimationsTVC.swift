@@ -4,23 +4,51 @@
 
 import UIKit
 
+
 class IRAnimationsTVC: UITableViewController {
 
-    let model = [IRAnimationStrategyType.SingleProperty,
-                 IRAnimationStrategyType.CustomBezier,
-                 IRAnimationStrategyType.SpringEffect,
-                 IRAnimationStrategyType.MultipleBlocks
+    let segueIdentifiers = [
+        "ShowAnimation",
+        "ShowScrubbableAnimation"
+    ]
+
+
+    let model : [[Any]] = [
+            [
+                IRAnimationStrategyType.SingleProperty,
+                IRAnimationStrategyType.CustomBezier,
+                IRAnimationStrategyType.SpringEffect,
+                IRAnimationStrategyType.MultipleBlocks
+            ],
+            [
+                IRScrubbableAnimationStrategyType.LinearScrubbable
+            ]
     ]
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "ShowAnimation", sender: indexPath)
+        self.performSegue(withIdentifier: self.segueIdentifiers[indexPath.section], sender: indexPath)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = sender as? NSIndexPath {
-            let strategyType = model[indexPath.row]
-            if let destination = segue.destination as? IRAnimateVC {
-                destination.strategy = IRAnimationStrategyFactory().strategyFor(type: strategyType)
+
+            switch indexPath.section {
+            case 0:
+                if let strategyType = model[indexPath.section][indexPath.row] as? IRAnimationStrategyType {
+                    if let destination = segue.destination as? IRAnimateVC {
+                        destination.strategy = IRAnimationStrategyFactory().strategyFor(type: strategyType)
+                    }
+                }
+
+            case 1:
+                if let strategyType = model[indexPath.section][indexPath.row] as? IRScrubbableAnimationStrategyType {
+                    if let destination = segue.destination as? IRScrubbableAnimateVC {
+                        destination.strategy = IRScrubbableAnimationStrategyFactory().strategyFor(type: strategyType)
+                    }
+                }
+
+            default:
+                break;
             }
         }
     }
