@@ -13,7 +13,7 @@
         <!--Animations-->
         <scene sceneID="9KW-Vz-Le4">
             <objects>
-                <tableViewController storyboardIdentifier="IRAnimationListTableViewController" id="zjr-fD-FXa" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="IRAnimationListTableViewController" id="zjr-fD-FXa" customClass="IRAnimationsTVC" customModule="IRUIViewPropertyAnimator" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="OgQ-O3-lLO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,18 +25,18 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gU0-7b-uq3" id="kTD-DP-aoH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Single Property" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kpa-Rd-ZlK">
-                                                    <rect key="frame" x="15" y="5" width="118" height="20"/>
+                                                    <rect key="frame" x="15" y="5" width="118" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Change the center property of a view" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ena-Us-Tpd">
-                                                    <rect key="frame" x="15" y="25" width="211" height="15"/>
+                                                    <rect key="frame" x="15" y="25.5" width="211" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -44,9 +44,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="7nD-qn-sUi" kind="show" id="Pmi-MG-LOh"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -57,15 +54,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Animations" id="5hO-gb-xCu"/>
+                    <connections>
+                        <segue destination="7nD-qn-sUi" kind="show" identifier="ShowAnimation" id="HcM-0Y-eeP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MlT-Me-9ah" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1055.2" y="142.57871064467767"/>
+            <point key="canvasLocation" x="1082" y="143"/>
         </scene>
-        <!--Single PropertyVC-->
+        <!--Animation-->
         <scene sceneID="69T-8m-be8">
             <objects>
-                <viewController id="7nD-qn-sUi" customClass="IRSinglePropertyVC" customModule="IRUIViewPropertyAnimator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Animation" id="7nD-qn-sUi" customClass="IRAnimateVC" customModule="IRUIViewPropertyAnimator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TA9-bO-0OZ"/>
                         <viewControllerLayoutGuide type="bottom" id="YeI-tT-Hlc"/>
@@ -95,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOk-JN-Nby" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1708" y="140.77961019490255"/>
+            <point key="canvasLocation" x="2014" y="143"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Smg-RA-kEv">
