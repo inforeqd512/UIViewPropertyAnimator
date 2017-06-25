@@ -6,6 +6,7 @@ import UIKit
 
 enum IRAnimationStrategyType {
     case SingleProperty
+    case CornerRadius
     case CustomBezier
     case SpringEffect
     case MultipleBlocks
@@ -17,10 +18,12 @@ protocol IRAnimationStrategy {
 
 struct IRAnimationStrategyFactory {
     let model : [IRAnimationStrategyType : IRAnimationStrategy] =
-        [IRAnimationStrategyType.SingleProperty : SinglePropertyStrategy(),
-         IRAnimationStrategyType.CustomBezier : CustomBezierStrategy(),
-         IRAnimationStrategyType.SpringEffect : SpringEffectStrategy(),
-         IRAnimationStrategyType.MultipleBlocks : MultipleBlocksStrategy()
+        [
+            IRAnimationStrategyType.SingleProperty : SinglePropertyStrategy(),
+            IRAnimationStrategyType.CornerRadius : CornerRadiusStrategy(),
+            IRAnimationStrategyType.CustomBezier : CustomBezierStrategy(),
+            IRAnimationStrategyType.SpringEffect : SpringEffectStrategy(),
+            IRAnimationStrategyType.MultipleBlocks : MultipleBlocksStrategy()
     ]
 
     func strategyFor(type: IRAnimationStrategyType) -> IRAnimationStrategy {
@@ -31,7 +34,7 @@ struct IRAnimationStrategyFactory {
 
 private func translate(view: UIView) {
     let currentCenter = view.center
-    let finalCenter = CGPoint(x: currentCenter.x + 250.0, y: currentCenter.y)
+    let finalCenter = CGPoint(x: currentCenter.x + 225.0, y: currentCenter.y)
     view.center = finalCenter
 }
 
@@ -42,6 +45,18 @@ struct SinglePropertyStrategy : IRAnimationStrategy{
             translate(view: view)
         }
 
+        animator.startAnimation()
+    }
+}
+
+struct CornerRadiusStrategy : IRAnimationStrategy{
+    func animate(view: UIView) {
+        let animator = UIViewPropertyAnimator(duration: 1.0, curve: .easeInOut) {
+            [unowned view] in
+            view.layer.cornerRadius = 16.0
+            
+        }
+        
         animator.startAnimation()
     }
 }
