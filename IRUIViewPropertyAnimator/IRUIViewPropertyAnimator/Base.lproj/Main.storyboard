@@ -205,10 +205,20 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFi-bG-jYn" userLabel="AnimatingView">
                                         <rect key="frame" x="21" y="-30" width="75" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attention" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNv-gz-ZBW">
+                                                <rect key="frame" x="6.5" y="16.5" width="62.5" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" red="0.33650716145833331" green="0.74484592013888884" blue="0.71023220486111116" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="75" id="FnH-hu-Eto"/>
                                             <constraint firstAttribute="height" constant="50" id="Jes-ia-xcH"/>
+                                            <constraint firstItem="WNv-gz-ZBW" firstAttribute="centerY" secondItem="MFi-bG-jYn" secondAttribute="centerY" id="ZOY-yE-9DM"/>
+                                            <constraint firstItem="WNv-gz-ZBW" firstAttribute="centerX" secondItem="MFi-bG-jYn" secondAttribute="centerX" id="ihW-Yh-sc5"/>
                                         </constraints>
                                     </view>
                                 </subviews>
