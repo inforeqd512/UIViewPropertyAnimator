@@ -12,6 +12,7 @@ enum IRAnimationStrategyType {
     case MultipleBlocks
     case Transform
     case BackgroundColor
+    case ReversedAnimation
 }
 
 protocol IRAnimationStrategy {
@@ -27,7 +28,8 @@ struct IRAnimationStrategyFactory {
             IRAnimationStrategyType.SpringEffect : SpringEffectStrategy(),
             IRAnimationStrategyType.MultipleBlocks : MultipleBlocksStrategy(),
             IRAnimationStrategyType.Transform : TransformStrategy(),
-            IRAnimationStrategyType.BackgroundColor : BackgroundColorStrategy()
+            IRAnimationStrategyType.BackgroundColor : BackgroundColorStrategy(),
+            IRAnimationStrategyType.ReversedAnimation : ReversedAnimationStrategy()
     ]
 
     func strategyFor(type: IRAnimationStrategyType) -> IRAnimationStrategy {
@@ -125,3 +127,15 @@ struct BackgroundColorStrategy : IRAnimationStrategy{
     }
 }
 
+
+struct ReversedAnimationStrategy : IRAnimationStrategy{
+    func animate(view: UIView) {
+        //Still no way to do it with property animator, have to use UIView animation
+        let currentCenter = view.center
+        UIView.animate(withDuration: 2.0, delay: 0.0, options: [.autoreverse], animations: {
+            translate(view: view)
+        }) { (completed) in
+            view.center = currentCenter
+        }
+    }
+}

@@ -21,7 +21,8 @@ class IRAnimationsTVC: UITableViewController {
                 IRAnimationStrategyType.SpringEffect,
                 IRAnimationStrategyType.MultipleBlocks,
                 IRAnimationStrategyType.Transform,
-                IRAnimationStrategyType.BackgroundColor
+                IRAnimationStrategyType.BackgroundColor,
+                IRAnimationStrategyType.ReversedAnimation
             ],
             [
                 IRScrubbableAnimationStrategyType.LinearScrubbable
