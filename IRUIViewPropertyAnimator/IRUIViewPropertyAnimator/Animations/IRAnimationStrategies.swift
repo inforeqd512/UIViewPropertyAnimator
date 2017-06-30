@@ -13,6 +13,7 @@ enum IRAnimationStrategyType {
     case Transform
     case BackgroundColor
     case ReversedAnimation
+    case BoundsChange
 }
 
 protocol IRAnimationStrategy {
@@ -29,7 +30,8 @@ struct IRAnimationStrategyFactory {
             IRAnimationStrategyType.MultipleBlocks : MultipleBlocksStrategy(),
             IRAnimationStrategyType.Transform : TransformStrategy(),
             IRAnimationStrategyType.BackgroundColor : BackgroundColorStrategy(),
-            IRAnimationStrategyType.ReversedAnimation : ReversedAnimationStrategy()
+            IRAnimationStrategyType.ReversedAnimation : ReversedAnimationStrategy(),
+            IRAnimationStrategyType.BoundsChange : BoundsChangeStrategy()
     ]
 
     func strategyFor(type: IRAnimationStrategyType) -> IRAnimationStrategy {
@@ -127,7 +129,6 @@ struct BackgroundColorStrategy : IRAnimationStrategy{
     }
 }
 
-
 struct ReversedAnimationStrategy : IRAnimationStrategy{
     func animate(view: UIView) {
         //Still no way to do it with property animator, have to use UIView animation
@@ -137,5 +138,18 @@ struct ReversedAnimationStrategy : IRAnimationStrategy{
         }) { (completed) in
             view.center = currentCenter
         }
+    }
+}
+
+struct BoundsChangeStrategy : IRAnimationStrategy{
+    func animate(view: UIView) {
+        let animator = UIViewPropertyAnimator(duration: 2.0, curve: .easeInOut) {
+            [unowned view] in
+            let oldBounds = view.bounds
+            let newBounds = CGRect(x: oldBounds.origin.x - 10, y: oldBounds.origin.y - 10, width: oldBounds.size.width + 20, height: oldBounds.size.height + 20)
+            view.bounds = newBounds
+        }
+        
+        animator.startAnimation()
     }
 }
