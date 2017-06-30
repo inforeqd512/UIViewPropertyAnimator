@@ -11,6 +11,7 @@ enum IRAnimationStrategyType {
     case SpringEffect
     case MultipleBlocks
     case Transform
+    case BackgroundColor
 }
 
 protocol IRAnimationStrategy {
@@ -25,7 +26,8 @@ struct IRAnimationStrategyFactory {
             IRAnimationStrategyType.CustomBezier : CustomBezierStrategy(),
             IRAnimationStrategyType.SpringEffect : SpringEffectStrategy(),
             IRAnimationStrategyType.MultipleBlocks : MultipleBlocksStrategy(),
-            IRAnimationStrategyType.Transform : TransformStrategy()
+            IRAnimationStrategyType.Transform : TransformStrategy(),
+            IRAnimationStrategyType.BackgroundColor : BackgroundColorStrategy()
     ]
 
     func strategyFor(type: IRAnimationStrategyType) -> IRAnimationStrategy {
@@ -106,6 +108,17 @@ struct TransformStrategy : IRAnimationStrategy{
         let animator = UIViewPropertyAnimator(duration: 2.0, curve: .easeInOut) {
             [unowned view] in
             view.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi/2.0))
+        }
+        
+        animator.startAnimation()
+    }
+}
+
+struct BackgroundColorStrategy : IRAnimationStrategy{
+    func animate(view: UIView) {
+        let animator = UIViewPropertyAnimator(duration: 2.0, curve: .easeInOut) {
+            [unowned view] in
+            view.backgroundColor = UIColor.orange
         }
         
         animator.startAnimation()

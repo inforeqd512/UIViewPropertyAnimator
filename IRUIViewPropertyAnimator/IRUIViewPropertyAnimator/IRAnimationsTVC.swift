@@ -20,7 +20,8 @@ class IRAnimationsTVC: UITableViewController {
                 IRAnimationStrategyType.CustomBezier,
                 IRAnimationStrategyType.SpringEffect,
                 IRAnimationStrategyType.MultipleBlocks,
-                IRAnimationStrategyType.Transform
+                IRAnimationStrategyType.Transform,
+                IRAnimationStrategyType.BackgroundColor
             ],
             [
                 IRScrubbableAnimationStrategyType.LinearScrubbable
