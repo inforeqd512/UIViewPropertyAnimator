@@ -16,9 +16,13 @@ class IRAnimationsTVC: UITableViewController {
     let model : [[Any]] = [
             [
                 IRAnimationStrategyType.SingleProperty,
+                IRAnimationStrategyType.CornerRadius,
                 IRAnimationStrategyType.CustomBezier,
                 IRAnimationStrategyType.SpringEffect,
-                IRAnimationStrategyType.MultipleBlocks
+                IRAnimationStrategyType.MultipleBlocks,
+                IRAnimationStrategyType.Transform,
+                IRAnimationStrategyType.BackgroundColor,
+                IRAnimationStrategyType.ReversedAnimation
             ],
             [
                 IRScrubbableAnimationStrategyType.LinearScrubbable

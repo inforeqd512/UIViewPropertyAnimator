@@ -6,9 +6,13 @@ import UIKit
 
 enum IRAnimationStrategyType {
     case SingleProperty
+    case CornerRadius
     case CustomBezier
     case SpringEffect
     case MultipleBlocks
+    case Transform
+    case BackgroundColor
+    case ReversedAnimation
 }
 
 protocol IRAnimationStrategy {
@@ -17,10 +21,15 @@ protocol IRAnimationStrategy {
 
 struct IRAnimationStrategyFactory {
     let model : [IRAnimationStrategyType : IRAnimationStrategy] =
-        [IRAnimationStrategyType.SingleProperty : SinglePropertyStrategy(),
-         IRAnimationStrategyType.CustomBezier : CustomBezierStrategy(),
-         IRAnimationStrategyType.SpringEffect : SpringEffectStrategy(),
-         IRAnimationStrategyType.MultipleBlocks : MultipleBlocksStrategy()
+        [
+            IRAnimationStrategyType.SingleProperty : SinglePropertyStrategy(),
+            IRAnimationStrategyType.CornerRadius : CornerRadiusStrategy(),
+            IRAnimationStrategyType.CustomBezier : CustomBezierStrategy(),
+            IRAnimationStrategyType.SpringEffect : SpringEffectStrategy(),
+            IRAnimationStrategyType.MultipleBlocks : MultipleBlocksStrategy(),
+            IRAnimationStrategyType.Transform : TransformStrategy(),
+            IRAnimationStrategyType.BackgroundColor : BackgroundColorStrategy(),
+            IRAnimationStrategyType.ReversedAnimation : ReversedAnimationStrategy()
     ]
 
     func strategyFor(type: IRAnimationStrategyType) -> IRAnimationStrategy {
@@ -31,7 +40,7 @@ struct IRAnimationStrategyFactory {
 
 private func translate(view: UIView) {
     let currentCenter = view.center
-    let finalCenter = CGPoint(x: currentCenter.x + 250.0, y: currentCenter.y)
+    let finalCenter = CGPoint(x: currentCenter.x + 225.0, y: currentCenter.y)
     view.center = finalCenter
 }
 
@@ -42,6 +51,18 @@ struct SinglePropertyStrategy : IRAnimationStrategy{
             translate(view: view)
         }
 
+        animator.startAnimation()
+    }
+}
+
+struct CornerRadiusStrategy : IRAnimationStrategy{
+    func animate(view: UIView) {
+        let animator = UIViewPropertyAnimator(duration: 1.0, curve: .easeInOut) {
+            [unowned view] in
+            view.layer.cornerRadius = 16.0
+            
+        }
+        
         animator.startAnimation()
     }
 }
@@ -84,3 +105,37 @@ struct MultipleBlocksStrategy : IRAnimationStrategy{
     }
 }
 
+struct TransformStrategy : IRAnimationStrategy{
+    func animate(view: UIView) {
+        let animator = UIViewPropertyAnimator(duration: 2.0, curve: .easeInOut) {
+            [unowned view] in
+            view.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi/2.0))
+        }
+        
+        animator.startAnimation()
+    }
+}
+
+struct BackgroundColorStrategy : IRAnimationStrategy{
+    func animate(view: UIView) {
+        let animator = UIViewPropertyAnimator(duration: 2.0, curve: .easeInOut) {
+            [unowned view] in
+            view.backgroundColor = UIColor.orange
+        }
+        
+        animator.startAnimation()
+    }
+}
+
+
+struct ReversedAnimationStrategy : IRAnimationStrategy{
+    func animate(view: UIView) {
+        //Still no way to do it with property animator, have to use UIView animation
+        let currentCenter = view.center
+        UIView.animate(withDuration: 2.0, delay: 0.0, options: [.autoreverse], animations: {
+            translate(view: view)
+        }) { (completed) in
+            view.center = currentCenter
+        }
+    }
+}
