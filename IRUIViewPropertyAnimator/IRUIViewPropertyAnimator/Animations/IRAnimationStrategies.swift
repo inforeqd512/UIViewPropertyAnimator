@@ -10,6 +10,7 @@ enum IRAnimationStrategyType {
     case CustomBezier
     case SpringEffect
     case MultipleBlocks
+    case Transform
 }
 
 protocol IRAnimationStrategy {
@@ -23,7 +24,8 @@ struct IRAnimationStrategyFactory {
             IRAnimationStrategyType.CornerRadius : CornerRadiusStrategy(),
             IRAnimationStrategyType.CustomBezier : CustomBezierStrategy(),
             IRAnimationStrategyType.SpringEffect : SpringEffectStrategy(),
-            IRAnimationStrategyType.MultipleBlocks : MultipleBlocksStrategy()
+            IRAnimationStrategyType.MultipleBlocks : MultipleBlocksStrategy(),
+            IRAnimationStrategyType.Transform : TransformStrategy()
     ]
 
     func strategyFor(type: IRAnimationStrategyType) -> IRAnimationStrategy {
@@ -95,6 +97,17 @@ struct MultipleBlocksStrategy : IRAnimationStrategy{
             translate(view: view)
         }
 
+        animator.startAnimation()
+    }
+}
+
+struct TransformStrategy : IRAnimationStrategy{
+    func animate(view: UIView) {
+        let animator = UIViewPropertyAnimator(duration: 2.0, curve: .easeInOut) {
+            [unowned view] in
+            view.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi/2.0))
+        }
+        
         animator.startAnimation()
     }
 }

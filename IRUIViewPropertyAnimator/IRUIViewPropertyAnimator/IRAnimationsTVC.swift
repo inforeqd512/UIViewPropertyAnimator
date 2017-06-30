@@ -19,7 +19,8 @@ class IRAnimationsTVC: UITableViewController {
                 IRAnimationStrategyType.CornerRadius,
                 IRAnimationStrategyType.CustomBezier,
                 IRAnimationStrategyType.SpringEffect,
-                IRAnimationStrategyType.MultipleBlocks
+                IRAnimationStrategyType.MultipleBlocks,
+                IRAnimationStrategyType.Transform
             ],
             [
                 IRScrubbableAnimationStrategyType.LinearScrubbable
