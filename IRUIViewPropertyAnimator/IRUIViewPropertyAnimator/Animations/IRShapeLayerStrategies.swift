@@ -43,3 +43,32 @@ struct ShapeLayerPathStrategy : IRAnimationStrategy{
         
     }
 }
+
+struct ShapeLayerStrokeStartStrategy : IRAnimationStrategy{
+    
+    func animate(view: UIView) {
+        
+        let shapeLayer = createShapeLayer(view: view)
+        view.clipsToBounds = true
+        view.layer.insertSublayer(shapeLayer, at: 0)
+        
+        let startValue : CGFloat = 0.0
+        let endValue : CGFloat = 1.0
+        
+        shapeLayer.path = UIBezierPath(rect: shapeLayer.bounds).cgPath
+        shapeLayer.fillColor = view.backgroundColor?.cgColor
+        shapeLayer.strokeColor = UIColor.red.cgColor
+        shapeLayer.lineWidth = 4.0
+        shapeLayer.strokeStart = startValue
+        
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.duration = 2.0
+        shapeLayer.strokeEnd = startValue
+        animation.fromValue = shapeLayer.strokeEnd
+        shapeLayer.strokeEnd = endValue
+        animation.toValue = shapeLayer.strokeEnd
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        shapeLayer.add(animation, forKey: "strokeEndAnimation")
+        
+    }
+}
