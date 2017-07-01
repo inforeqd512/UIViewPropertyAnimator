@@ -69,3 +69,27 @@ struct GradientLocationStrategy : IRAnimationStrategy{
         
     }
 }
+
+struct GradientColorsStrategy : IRAnimationStrategy{
+    
+    func animate(view: UIView) {
+        
+        let gradientLayer = createGradientLayer(view: view)
+        let startValue = [view.backgroundColor!.cgColor, UIColor.yellow.cgColor]
+        let endValue = [UIColor.yellow.cgColor, UIColor.red.cgColor]
+        
+        gradientLayer.colors = startValue
+        
+        view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        
+        let animation1 = CABasicAnimation(keyPath: "colors")
+        animation1.duration = 2.0
+        animation1.fromValue = gradientLayer.colors
+        gradientLayer.colors = endValue
+        animation1.toValue = gradientLayer.colors
+        animation1.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        gradientLayer.add(animation1, forKey: "colorsAnimation")
+        
+    }
+}

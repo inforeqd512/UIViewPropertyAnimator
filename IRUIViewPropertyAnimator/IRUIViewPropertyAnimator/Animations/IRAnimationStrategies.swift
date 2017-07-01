@@ -16,6 +16,7 @@ enum IRAnimationStrategyType {
     case BoundsChange
     case GradientStartEndPoint
     case GradientLocation
+    case GradientColors
 }
 
 protocol IRAnimationStrategy {
@@ -35,7 +36,8 @@ struct IRAnimationStrategyFactory {
             IRAnimationStrategyType.ReversedAnimation : ReversedAnimationStrategy(),
             IRAnimationStrategyType.BoundsChange : BoundsChangeStrategy(),
             IRAnimationStrategyType.GradientStartEndPoint : GradientStartEndPointStrategy(),
-            IRAnimationStrategyType.GradientLocation : GradientLocationStrategy()
+            IRAnimationStrategyType.GradientLocation : GradientLocationStrategy(),
+            IRAnimationStrategyType.GradientColors : GradientColorsStrategy()
     ]
 
     func strategyFor(type: IRAnimationStrategyType) -> IRAnimationStrategy {
