@@ -26,7 +26,8 @@ class IRAnimationsTVC: UITableViewController {
                 IRAnimationStrategyType.BoundsChange,
                 IRAnimationStrategyType.GradientStartEndPoint,
                 IRAnimationStrategyType.GradientLocation,
-                IRAnimationStrategyType.GradientColors
+                IRAnimationStrategyType.GradientColors,
+                IRAnimationStrategyType.ShapeLayerPath
             ],
             [
                 IRScrubbableAnimationStrategyType.LinearScrubbable

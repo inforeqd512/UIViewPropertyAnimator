@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 
-func createGradientLayer(view : UIView) -> CAGradientLayer{
+private func createGradientLayer(view : UIView) -> CAGradientLayer{
     let gradientLayer = CAGradientLayer()
     gradientLayer.frame = view.bounds
     gradientLayer.colors = [UIColor.yellow.cgColor, view.backgroundColor!.cgColor]

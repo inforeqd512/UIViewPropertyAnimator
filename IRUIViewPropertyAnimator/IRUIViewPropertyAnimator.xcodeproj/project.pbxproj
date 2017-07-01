@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		691F5DB41F07705200B8878A /* IRAnimationStrategyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F5DB31F07705200B8878A /* IRAnimationStrategyConfig.swift */; };
+		691F5DB61F07718000B8878A /* IRShapeLayerStrategies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F5DB51F07718000B8878A /* IRShapeLayerStrategies.swift */; };
 		697F13EE1F071CAC00FF91FE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697F13ED1F071CA000FF91FE /* QuartzCore.framework */; };
-		697F13F01F07606F00FF91FE /* IRGradientAnimationStrategies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697F13EF1F07606F00FF91FE /* IRGradientAnimationStrategies.swift */; };
+		697F13F01F07606F00FF91FE /* IRGradientLayerStrategies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697F13EF1F07606F00FF91FE /* IRGradientLayerStrategies.swift */; };
 		F0270D8A1EF542A9004AED1A /* IRAnimateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0270D881EF542A9004AED1A /* IRAnimateVC.swift */; };
 		F0270D8B1EF542A9004AED1A /* IRPropertyAnimationStrategies.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0270D891EF542A9004AED1A /* IRPropertyAnimationStrategies.swift */; };
 		F0270D8F1EF542BF004AED1A /* IRScrubbableAnimateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0270D8D1EF542BF004AED1A /* IRScrubbableAnimateVC.swift */; };
@@ -23,8 +24,9 @@
 
 /* Begin PBXFileReference section */
 		691F5DB31F07705200B8878A /* IRAnimationStrategyConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRAnimationStrategyConfig.swift; sourceTree = "<group>"; };
+		691F5DB51F07718000B8878A /* IRShapeLayerStrategies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRShapeLayerStrategies.swift; sourceTree = "<group>"; };
 		697F13ED1F071CA000FF91FE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		697F13EF1F07606F00FF91FE /* IRGradientAnimationStrategies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRGradientAnimationStrategies.swift; sourceTree = "<group>"; };
+		697F13EF1F07606F00FF91FE /* IRGradientLayerStrategies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRGradientLayerStrategies.swift; sourceTree = "<group>"; };
 		F0270D881EF542A9004AED1A /* IRAnimateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRAnimateVC.swift; sourceTree = "<group>"; };
 		F0270D891EF542A9004AED1A /* IRPropertyAnimationStrategies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRPropertyAnimationStrategies.swift; sourceTree = "<group>"; };
 		F0270D8D1EF542BF004AED1A /* IRScrubbableAnimateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRScrubbableAnimateVC.swift; sourceTree = "<group>"; };
@@ -64,7 +66,8 @@
 				F0270D881EF542A9004AED1A /* IRAnimateVC.swift */,
 				691F5DB31F07705200B8878A /* IRAnimationStrategyConfig.swift */,
 				F0270D891EF542A9004AED1A /* IRPropertyAnimationStrategies.swift */,
-				697F13EF1F07606F00FF91FE /* IRGradientAnimationStrategies.swift */,
+				697F13EF1F07606F00FF91FE /* IRGradientLayerStrategies.swift */,
+				691F5DB51F07718000B8878A /* IRShapeLayerStrategies.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -187,7 +190,8 @@
 				691F5DB41F07705200B8878A /* IRAnimationStrategyConfig.swift in Sources */,
 				F07FBC371EF4A6D80009AF6E /* AppDelegate.swift in Sources */,
 				F0270D8F1EF542BF004AED1A /* IRScrubbableAnimateVC.swift in Sources */,
-				697F13F01F07606F00FF91FE /* IRGradientAnimationStrategies.swift in Sources */,
+				691F5DB61F07718000B8878A /* IRShapeLayerStrategies.swift in Sources */,
+				697F13F01F07606F00FF91FE /* IRGradientLayerStrategies.swift in Sources */,
 				F0AFB6C41EF4D8AA0093EA3D /* IRAnimationsTVC.swift in Sources */,
 				F0270D8A1EF542A9004AED1A /* IRAnimateVC.swift in Sources */,
 			);
