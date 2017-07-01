@@ -73,4 +73,32 @@ struct ShapeLayerStrokeEndStrategy : IRAnimationStrategy{
     }
 }
 
-
+struct ShapeLayerLineDashPhaseStrategy : IRAnimationStrategy{
+    
+    func animate(view: UIView) {
+        
+        let shapeLayer = createShapeLayer(view: view)
+        view.clipsToBounds = true
+        view.layer.insertSublayer(shapeLayer, at: 0)
+        
+        shapeLayer.path = UIBezierPath(rect: shapeLayer.bounds).cgPath
+        shapeLayer.fillColor = view.backgroundColor?.cgColor
+        shapeLayer.strokeColor = UIColor.red.cgColor
+        shapeLayer.lineWidth = 5.0
+        shapeLayer.lineDashPattern = [10,5,5,5]
+        
+        let startValue : CGFloat = 0.0
+        let endValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue }
+        
+        let lineDashAnimation = CABasicAnimation(keyPath: "lineDashPhase")
+        shapeLayer.lineDashPhase = startValue
+        lineDashAnimation.fromValue = shapeLayer.lineDashPhase
+        shapeLayer.lineDashPhase = CGFloat(endValue!)
+        lineDashAnimation.toValue = shapeLayer.lineDashPhase
+        lineDashAnimation.duration = 1
+        lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
+        
+        shapeLayer.add(lineDashAnimation, forKey: nil)
+        
+    }
+}

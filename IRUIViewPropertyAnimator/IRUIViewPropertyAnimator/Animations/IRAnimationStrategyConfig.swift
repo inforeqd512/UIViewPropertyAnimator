@@ -23,6 +23,7 @@ enum IRAnimationStrategyType {
     case GradientColors
     case ShapeLayerPath
     case ShapeLayerStrokeEnd
+    case ShapeLayerLineDashPhase
 }
 
 protocol IRAnimationStrategy {
@@ -45,7 +46,8 @@ struct IRAnimationStrategyFactory {
             IRAnimationStrategyType.GradientLocation : GradientLocationStrategy(),
             IRAnimationStrategyType.GradientColors : GradientColorsStrategy(),
             IRAnimationStrategyType.ShapeLayerPath : ShapeLayerPathStrategy(),
-            IRAnimationStrategyType.ShapeLayerStrokeEnd : ShapeLayerStrokeEndStrategy()
+            IRAnimationStrategyType.ShapeLayerStrokeEnd : ShapeLayerStrokeEndStrategy(),
+            IRAnimationStrategyType.ShapeLayerLineDashPhase : ShapeLayerLineDashPhaseStrategy()
     ]
     
     func strategyFor(type: IRAnimationStrategyType) -> IRAnimationStrategy {

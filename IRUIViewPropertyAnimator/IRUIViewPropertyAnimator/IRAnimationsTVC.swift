@@ -34,7 +34,8 @@ class IRAnimationsTVC: UITableViewController {
         ],
         [
             IRAnimationStrategyType.ShapeLayerPath,
-            IRAnimationStrategyType.ShapeLayerStrokeEnd
+            IRAnimationStrategyType.ShapeLayerStrokeEnd,
+            IRAnimationStrategyType.ShapeLayerLineDashPhase
         ],
         [
             IRScrubbableAnimationStrategyType.LinearScrubbable
