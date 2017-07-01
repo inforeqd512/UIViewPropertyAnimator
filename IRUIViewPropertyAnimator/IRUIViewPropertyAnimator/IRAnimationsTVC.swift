@@ -23,7 +23,8 @@ class IRAnimationsTVC: UITableViewController {
                 IRAnimationStrategyType.Transform,
                 IRAnimationStrategyType.BackgroundColor,
                 IRAnimationStrategyType.ReversedAnimation,
-                IRAnimationStrategyType.BoundsChange
+                IRAnimationStrategyType.BoundsChange,
+                IRAnimationStrategyType.GradientStartEndPoint
             ],
             [
                 IRScrubbableAnimationStrategyType.LinearScrubbable
