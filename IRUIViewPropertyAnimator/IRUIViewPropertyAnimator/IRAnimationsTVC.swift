@@ -24,7 +24,8 @@ class IRAnimationsTVC: UITableViewController {
                 IRAnimationStrategyType.BackgroundColor,
                 IRAnimationStrategyType.ReversedAnimation,
                 IRAnimationStrategyType.BoundsChange,
-                IRAnimationStrategyType.GradientStartEndPoint
+                IRAnimationStrategyType.GradientStartEndPoint,
+                IRAnimationStrategyType.GradientLocation
             ],
             [
                 IRScrubbableAnimationStrategyType.LinearScrubbable

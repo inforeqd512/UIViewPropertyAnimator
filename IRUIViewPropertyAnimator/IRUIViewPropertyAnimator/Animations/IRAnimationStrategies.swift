@@ -3,7 +3,6 @@
 //
 
 import UIKit
-import QuartzCore
 
 enum IRAnimationStrategyType {
     case SingleProperty
@@ -16,6 +15,7 @@ enum IRAnimationStrategyType {
     case ReversedAnimation
     case BoundsChange
     case GradientStartEndPoint
+    case GradientLocation
 }
 
 protocol IRAnimationStrategy {
@@ -34,7 +34,8 @@ struct IRAnimationStrategyFactory {
             IRAnimationStrategyType.BackgroundColor : BackgroundColorStrategy(),
             IRAnimationStrategyType.ReversedAnimation : ReversedAnimationStrategy(),
             IRAnimationStrategyType.BoundsChange : BoundsChangeStrategy(),
-            IRAnimationStrategyType.GradientStartEndPoint : GradientStartEndPointStrategy()
+            IRAnimationStrategyType.GradientStartEndPoint : GradientStartEndPointStrategy(),
+            IRAnimationStrategyType.GradientLocation : GradientLocationStrategy()
     ]
 
     func strategyFor(type: IRAnimationStrategyType) -> IRAnimationStrategy {

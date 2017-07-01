@@ -48,3 +48,24 @@ struct GradientStartEndPointStrategy : IRAnimationStrategy{
     }
 }
 
+struct GradientLocationStrategy : IRAnimationStrategy{
+
+    let startValue : [NSNumber] = [-0.3, 0.0]
+    let endValue : [NSNumber] = [0.7, 1.5]
+    
+    func animate(view: UIView) {
+        
+        let gradientLayer = createGradientLayer(view: view)
+        view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        let animation1 = CABasicAnimation(keyPath: "locations")
+        animation1.duration = 2.0
+        gradientLayer.locations = startValue
+        animation1.fromValue = gradientLayer.locations
+        gradientLayer.locations = endValue
+        animation1.toValue = gradientLayer.locations
+        animation1.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        gradientLayer.add(animation1, forKey: "locationsAnimation")
+        
+    }
+}
