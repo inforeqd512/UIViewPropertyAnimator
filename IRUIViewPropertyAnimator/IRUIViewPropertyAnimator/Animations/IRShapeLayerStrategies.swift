@@ -44,7 +44,7 @@ struct ShapeLayerPathStrategy : IRAnimationStrategy{
     }
 }
 
-struct ShapeLayerStrokeStartStrategy : IRAnimationStrategy{
+struct ShapeLayerStrokeEndStrategy : IRAnimationStrategy{
     
     func animate(view: UIView) {
         
@@ -72,3 +72,5 @@ struct ShapeLayerStrokeStartStrategy : IRAnimationStrategy{
         
     }
 }
+
+
