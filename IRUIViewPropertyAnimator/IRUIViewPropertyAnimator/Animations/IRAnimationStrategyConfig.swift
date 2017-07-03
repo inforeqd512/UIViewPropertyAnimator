@@ -2,9 +2,6 @@
 //  IRAnimationStrategy.swift
 //  IRUIViewPropertyAnimator
 //
-//  Created by Shefali Mistry on 1/7/17.
-//  Copyright © 2017 Info Reqd. All rights reserved.
-//
 
 import UIKit
 
@@ -24,6 +21,7 @@ enum IRAnimationStrategyType {
     case ShapeLayerPath
     case ShapeLayerStrokeEnd
     case ShapeLayerLineDashPhase
+    case ShapeLayerQuarterCircleActivity
 }
 
 protocol IRAnimationStrategy {
@@ -47,7 +45,8 @@ struct IRAnimationStrategyFactory {
             IRAnimationStrategyType.GradientColors : GradientColorsStrategy(),
             IRAnimationStrategyType.ShapeLayerPath : ShapeLayerPathStrategy(),
             IRAnimationStrategyType.ShapeLayerStrokeEnd : ShapeLayerStrokeEndStrategy(),
-            IRAnimationStrategyType.ShapeLayerLineDashPhase : ShapeLayerLineDashPhaseStrategy()
+            IRAnimationStrategyType.ShapeLayerLineDashPhase : ShapeLayerLineDashPhaseStrategy(),
+            IRAnimationStrategyType.ShapeLayerQuarterCircleActivity : ShapeLayerQuarterCircleActivityStrategy()
     ]
     
     func strategyFor(type: IRAnimationStrategyType) -> IRAnimationStrategy {

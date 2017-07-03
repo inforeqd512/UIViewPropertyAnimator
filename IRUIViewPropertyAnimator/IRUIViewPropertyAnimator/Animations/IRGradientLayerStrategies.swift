@@ -2,9 +2,6 @@
 //  IRGradientAnimationStrategies.swift
 //  IRUIViewPropertyAnimator
 //
-//  Created by Shefali Mistry on 1/7/17.
-//  Copyright © 2017 Info Reqd. All rights reserved.
-//
 
 import UIKit
 import QuartzCore

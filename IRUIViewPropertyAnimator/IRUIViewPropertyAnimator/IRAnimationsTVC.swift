@@ -11,6 +11,7 @@ class IRAnimationsTVC: UITableViewController {
         "ShowAnimation",
         "ShowAnimation",
         "ShowAnimation",
+        "ShowAnimation",
         "ShowScrubbableAnimation"
     ]
 
@@ -38,6 +39,9 @@ class IRAnimationsTVC: UITableViewController {
             IRAnimationStrategyType.ShapeLayerLineDashPhase
         ],
         [
+            IRAnimationStrategyType.ShapeLayerQuarterCircleActivity
+        ],
+        [
             IRScrubbableAnimationStrategyType.LinearScrubbable
         ]
     ]
@@ -52,7 +56,8 @@ class IRAnimationsTVC: UITableViewController {
             switch indexPath.section {
             case 0: fallthrough
             case 1: fallthrough
-            case 2:
+            case 2: fallthrough
+            case 3: 
                 if let strategyType = model[indexPath.section][indexPath.row] as? IRAnimationStrategyType {
                     if let destination = segue.destination as? IRAnimateVC {
                         destination.strategy = IRAnimationStrategyFactory().strategyFor(type: strategyType)
