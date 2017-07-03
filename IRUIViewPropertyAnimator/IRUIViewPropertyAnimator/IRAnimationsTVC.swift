@@ -34,8 +34,8 @@ class IRAnimationsTVC: UITableViewController {
             IRAnimationStrategyType.GradientColors
         ],
         [
-            IRAnimationStrategyType.ShapeLayerPath,
             IRAnimationStrategyType.ShapeLayerStrokeEnd,
+            IRAnimationStrategyType.ShapeLayerPath,
             IRAnimationStrategyType.ShapeLayerLineDashPhase
         ],
         [
