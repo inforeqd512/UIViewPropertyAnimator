@@ -3,51 +3,79 @@
 //
 
 import UIKit
+enum IRSegueIdentifier : String {
+    case showAnimation = "ShowAnimation"
+    case showScrubbableAnimation = "ShowScrubbableAnimation"
+    
+}
 
+struct IRTVSection {
+    let sectionSegueIdentifier : IRSegueIdentifier
+    let model : [Any]
+}
+
+
+func sections() -> [IRTVSection] {
+    let oneSection = IRTVSection(sectionSegueIdentifier: .showAnimation,
+                                 model: [
+                                    IRAnimationStrategyType.SingleProperty,
+                                    IRAnimationStrategyType.CornerRadius,
+                                    IRAnimationStrategyType.CustomBezier,
+                                    IRAnimationStrategyType.SpringEffect,
+                                    IRAnimationStrategyType.MultipleBlocks,
+                                    IRAnimationStrategyType.Transform,
+                                    IRAnimationStrategyType.BackgroundColor,
+                                    IRAnimationStrategyType.ReversedAnimation,
+                                    IRAnimationStrategyType.BoundsChange
+        ])
+    
+    
+    let twoSection = IRTVSection(sectionSegueIdentifier: .showAnimation,
+                                 model: [
+                                    IRAnimationStrategyType.GradientStartEndPoint,
+                                    IRAnimationStrategyType.GradientLocation,
+                                    IRAnimationStrategyType.GradientColors
+        ])
+    let threeSection = IRTVSection(sectionSegueIdentifier: .showAnimation,
+                                   model: [
+                                    IRAnimationStrategyType.ShapeLayerStrokeEnd,
+                                    IRAnimationStrategyType.ShapeLayerPath,
+                                    IRAnimationStrategyType.ShapeLayerLineDashPhase
+        ])
+    let fourSection = IRTVSection(sectionSegueIdentifier: .showAnimation,
+                                  model: [
+                                    IRAnimationStrategyType.ShapeLayerQuarterCircleActivity
+        ])
+    let fiveSection = IRTVSection(sectionSegueIdentifier: .showScrubbableAnimation,
+                                  model: [
+                                    IRScrubbableAnimationStrategyType.LinearScrubbable
+        ])
+    
+    return [
+        oneSection,
+        twoSection,
+        threeSection,
+        fourSection,
+        fiveSection
+    ]
+}
 
 class IRAnimationsTVC: UITableViewController {
-
-    let sectionSegueIdentifiers = [
-        "ShowAnimation",
-        "ShowAnimation",
-        "ShowAnimation",
-        "ShowAnimation",
-        "ShowScrubbableAnimation"
-    ]
-
-
-    let model : [[Any]] = [
-        [
-            IRAnimationStrategyType.SingleProperty,
-            IRAnimationStrategyType.CornerRadius,
-            IRAnimationStrategyType.CustomBezier,
-            IRAnimationStrategyType.SpringEffect,
-            IRAnimationStrategyType.MultipleBlocks,
-            IRAnimationStrategyType.Transform,
-            IRAnimationStrategyType.BackgroundColor,
-            IRAnimationStrategyType.ReversedAnimation,
-            IRAnimationStrategyType.BoundsChange
-        ],
-        [
-            IRAnimationStrategyType.GradientStartEndPoint,
-            IRAnimationStrategyType.GradientLocation,
-            IRAnimationStrategyType.GradientColors
-        ],
-        [
-            IRAnimationStrategyType.ShapeLayerStrokeEnd,
-            IRAnimationStrategyType.ShapeLayerPath,
-            IRAnimationStrategyType.ShapeLayerLineDashPhase
-        ],
-        [
-            IRAnimationStrategyType.ShapeLayerQuarterCircleActivity
-        ],
-        [
-            IRScrubbableAnimationStrategyType.LinearScrubbable
-        ]
-    ]
+    
+    let model : [IRTVSection]
+    
+    override init(style: UITableViewStyle) {
+        model = sections()
+        super.init(style: style)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        model = sections()
+        super.init(coder: aDecoder)
+    }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: self.sectionSegueIdentifiers[indexPath.section], sender: indexPath)
+        self.performSegue(withIdentifier: self.model[indexPath.section].sectionSegueIdentifier.rawValue, sender: indexPath)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,15 +85,15 @@ class IRAnimationsTVC: UITableViewController {
             case 0: fallthrough
             case 1: fallthrough
             case 2: fallthrough
-            case 3: 
-                if let strategyType = model[indexPath.section][indexPath.row] as? IRAnimationStrategyType {
+            case 3:
+                if let strategyType = self.model[indexPath.section].model[indexPath.row] as? IRAnimationStrategyType {
                     if let destination = segue.destination as? IRAnimateVC {
                         destination.strategy = IRAnimationStrategyFactory().strategyFor(type: strategyType)
                     }
                 }
 
             case 3:
-                if let strategyType = model[indexPath.section][indexPath.row] as? IRScrubbableAnimationStrategyType {
+                if let strategyType = self.model[indexPath.section].model[indexPath.row] as? IRScrubbableAnimationStrategyType {
                     if let destination = segue.destination as? IRScrubbableAnimateVC {
                         destination.strategy = IRScrubbableAnimationStrategyFactory().strategyFor(type: strategyType)
                     }
