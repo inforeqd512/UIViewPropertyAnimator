@@ -6,7 +6,6 @@ import UIKit
 enum IRSegueIdentifier : String {
     case showAnimation = "ShowAnimation"
     case showScrubbableAnimation = "ShowScrubbableAnimation"
-    
 }
 
 struct IRTVSection {
@@ -82,24 +81,20 @@ class IRAnimationsTVC: UITableViewController {
         if let indexPath = sender as? NSIndexPath {
 
             switch indexPath.section {
-            case 0: fallthrough
-            case 1: fallthrough
-            case 2: fallthrough
-            case 3:
-                if let strategyType = self.model[indexPath.section].model[indexPath.row] as? IRAnimationStrategyType {
-                    if let destination = segue.destination as? IRAnimateVC {
-                        destination.strategy = IRAnimationStrategyFactory().strategyFor(type: strategyType)
-                    }
-                }
-
-            case 3:
+            case 4:
                 if let strategyType = self.model[indexPath.section].model[indexPath.row] as? IRScrubbableAnimationStrategyType {
                     if let destination = segue.destination as? IRScrubbableAnimateVC {
                         destination.strategy = IRScrubbableAnimationStrategyFactory().strategyFor(type: strategyType)
                     }
                 }
+                break;
 
             default:
+                if let strategyType = self.model[indexPath.section].model[indexPath.row] as? IRAnimationStrategyType {
+                    if let destination = segue.destination as? IRAnimateVC {
+                        destination.strategy = IRAnimationStrategyFactory().strategyFor(type: strategyType)
+                    }
+                }
                 break;
             }
         }
