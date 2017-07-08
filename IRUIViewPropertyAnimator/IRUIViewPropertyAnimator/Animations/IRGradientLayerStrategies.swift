@@ -25,22 +25,20 @@ struct GradientStartEndPointStrategy : IRAnimationStrategy{
         
         let animation1 = CABasicAnimation(keyPath: "startPoint")
         animation1.duration = 2.0
-        gradientLayer.startPoint = startValue
-        animation1.fromValue = gradientLayer.startPoint
-        gradientLayer.startPoint = endValue
-        animation1.toValue = gradientLayer.startPoint
+        animation1.fromValue = startValue
+        animation1.toValue = endValue
         animation1.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
         gradientLayer.add(animation1, forKey: "startpointAnimation")
+        gradientLayer.startPoint = endValue
         
         
         let animation2 = CABasicAnimation(keyPath: "endPoint")
         animation2.duration = 2.0
-        gradientLayer.endPoint = startValue
-        animation2.fromValue = gradientLayer.endPoint
-        gradientLayer.endPoint = endValue
-        animation2.toValue = gradientLayer.endPoint
+        animation2.fromValue = startValue
+        animation2.toValue = endValue
         animation2.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         gradientLayer.add(animation2, forKey: "endpointAnimation")
+        gradientLayer.endPoint = endValue
         
     }
 }
@@ -57,12 +55,11 @@ struct GradientLocationStrategy : IRAnimationStrategy{
         
         let animation1 = CABasicAnimation(keyPath: "locations")
         animation1.duration = 2.0
-        gradientLayer.locations = startValue
-        animation1.fromValue = gradientLayer.locations
-        gradientLayer.locations = endValue
-        animation1.toValue = gradientLayer.locations
+        animation1.fromValue = startValue
+        animation1.toValue = endValue
         animation1.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
         gradientLayer.add(animation1, forKey: "locationsAnimation")
+        gradientLayer.locations = endValue
         
     }
 }
@@ -75,18 +72,16 @@ struct GradientColorsStrategy : IRAnimationStrategy{
         let startValue = [view.backgroundColor!.cgColor, UIColor.yellow.cgColor]
         let endValue = [UIColor.yellow.cgColor, UIColor.red.cgColor]
         
-        gradientLayer.colors = startValue
-        
         view.layer.insertSublayer(gradientLayer, at: 0)
-        
         
         let animation1 = CABasicAnimation(keyPath: "colors")
         animation1.duration = 2.0
-        animation1.fromValue = gradientLayer.colors
+        animation1.fromValue = startValue
         gradientLayer.colors = endValue
         animation1.toValue = gradientLayer.colors
         animation1.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
         gradientLayer.add(animation1, forKey: "colorsAnimation")
+        gradientLayer.colors = endValue
         
     }
 }

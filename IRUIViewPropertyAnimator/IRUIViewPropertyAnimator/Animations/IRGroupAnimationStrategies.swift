@@ -37,22 +37,21 @@ struct ShapeLayerQuarterCircleActivityStrategy : IRAnimationStrategy{
         let strokeEndLastValue : CGFloat = 1.5
         
         let strokeStartAnimation = CABasicAnimation(keyPath: "strokeStart")
-        shapeLayer.strokeStart = strokeStartBeginValue
-        strokeStartAnimation.fromValue = shapeLayer.strokeStart
-        shapeLayer.strokeStart = strokeStartEndValue
-        strokeStartAnimation.toValue = shapeLayer.strokeStart
+        strokeStartAnimation.fromValue = strokeStartBeginValue
+        strokeStartAnimation.toValue = strokeStartEndValue
         
         let strokeEndAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        shapeLayer.strokeEnd = strokeEndBeginValue
-        strokeEndAnimation.fromValue = shapeLayer.strokeEnd
-        shapeLayer.strokeEnd = strokeEndLastValue
-        strokeEndAnimation.toValue = shapeLayer.strokeEnd
+        strokeEndAnimation.fromValue = strokeEndBeginValue
+        strokeEndAnimation.toValue = strokeEndLastValue
         
         let group = CAAnimationGroup()
         group.animations = [strokeStartAnimation, strokeEndAnimation]
         group.duration = 2.0
         group.repeatCount = Float.greatestFiniteMagnitude
         shapeLayer.add(group, forKey: "ShapeLayerQuarterCircleActivityStrategy")
+        
+        shapeLayer.strokeEnd = strokeEndLastValue
+        shapeLayer.strokeStart = strokeStartEndValue
         
     }
 }

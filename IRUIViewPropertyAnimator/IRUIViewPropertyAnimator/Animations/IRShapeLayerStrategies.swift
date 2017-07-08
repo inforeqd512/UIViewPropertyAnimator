@@ -31,12 +31,11 @@ struct ShapeLayerPathStrategy : IRAnimationStrategy{
         
         let animation = CABasicAnimation(keyPath: "path")
         animation.duration = 2.0
-        shapeLayer.path = startValue
-        animation.fromValue = shapeLayer.path
-        shapeLayer.path = endValue
-        animation.toValue = shapeLayer.path
+        animation.fromValue = startValue
+        animation.toValue = endValue
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         shapeLayer.add(animation, forKey: "pathAnimation")
+        shapeLayer.path = endValue
         
     }
 }
@@ -60,12 +59,11 @@ struct ShapeLayerStrokeEndStrategy : IRAnimationStrategy{
         
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.duration = 2.0
-        shapeLayer.strokeEnd = startValue
-        animation.fromValue = shapeLayer.strokeEnd
-        shapeLayer.strokeEnd = endValue
-        animation.toValue = shapeLayer.strokeEnd
+        animation.fromValue = startValue
+        animation.toValue = endValue
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         shapeLayer.add(animation, forKey: "strokeEndAnimation")
+        shapeLayer.strokeEnd = endValue
         
     }
 }
@@ -88,12 +86,11 @@ struct ShapeLayerLineDashPhaseStrategy : IRAnimationStrategy{
         let endValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue }
         
         let lineDashAnimation = CABasicAnimation(keyPath: "lineDashPhase")
-        shapeLayer.lineDashPhase = startValue
-        lineDashAnimation.fromValue = shapeLayer.lineDashPhase
-        shapeLayer.lineDashPhase = CGFloat(endValue!)
-        lineDashAnimation.toValue = shapeLayer.lineDashPhase
+        lineDashAnimation.fromValue = startValue
+        lineDashAnimation.toValue = endValue
         lineDashAnimation.duration = 1
         lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
+        shapeLayer.lineDashPhase = CGFloat(endValue!)
         
         shapeLayer.add(lineDashAnimation, forKey: "lineDashAnimation")
         
