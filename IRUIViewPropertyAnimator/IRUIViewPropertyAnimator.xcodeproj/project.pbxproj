@@ -12,6 +12,7 @@
 		694E9B931F0AFEE100018BF0 /* IRGroupAnimationStrategies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694E9B921F0AFEE100018BF0 /* IRGroupAnimationStrategies.swift */; };
 		697F13EE1F071CAC00FF91FE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697F13ED1F071CA000FF91FE /* QuartzCore.framework */; };
 		697F13F01F07606F00FF91FE /* IRGradientLayerStrategies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697F13EF1F07606F00FF91FE /* IRGradientLayerStrategies.swift */; };
+		69EED80E1F18F30700D5F1E4 /* IRKeyframeAnimationStrategies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EED80D1F18F30700D5F1E4 /* IRKeyframeAnimationStrategies.swift */; };
 		F0270D8A1EF542A9004AED1A /* IRAnimateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0270D881EF542A9004AED1A /* IRAnimateVC.swift */; };
 		F0270D8B1EF542A9004AED1A /* IRPropertyAnimationStrategies.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0270D891EF542A9004AED1A /* IRPropertyAnimationStrategies.swift */; };
 		F0270D8F1EF542BF004AED1A /* IRScrubbableAnimateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0270D8D1EF542BF004AED1A /* IRScrubbableAnimateVC.swift */; };
@@ -29,6 +30,7 @@
 		694E9B921F0AFEE100018BF0 /* IRGroupAnimationStrategies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRGroupAnimationStrategies.swift; sourceTree = "<group>"; };
 		697F13ED1F071CA000FF91FE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		697F13EF1F07606F00FF91FE /* IRGradientLayerStrategies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRGradientLayerStrategies.swift; sourceTree = "<group>"; };
+		69EED80D1F18F30700D5F1E4 /* IRKeyframeAnimationStrategies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRKeyframeAnimationStrategies.swift; sourceTree = "<group>"; };
 		F0270D881EF542A9004AED1A /* IRAnimateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRAnimateVC.swift; sourceTree = "<group>"; };
 		F0270D891EF542A9004AED1A /* IRPropertyAnimationStrategies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRPropertyAnimationStrategies.swift; sourceTree = "<group>"; };
 		F0270D8D1EF542BF004AED1A /* IRScrubbableAnimateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRScrubbableAnimateVC.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				697F13EF1F07606F00FF91FE /* IRGradientLayerStrategies.swift */,
 				691F5DB51F07718000B8878A /* IRShapeLayerStrategies.swift */,
 				694E9B921F0AFEE100018BF0 /* IRGroupAnimationStrategies.swift */,
+				69EED80D1F18F30700D5F1E4 /* IRKeyframeAnimationStrategies.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				F0270D8F1EF542BF004AED1A /* IRScrubbableAnimateVC.swift in Sources */,
 				691F5DB61F07718000B8878A /* IRShapeLayerStrategies.swift in Sources */,
 				697F13F01F07606F00FF91FE /* IRGradientLayerStrategies.swift in Sources */,
+				69EED80E1F18F30700D5F1E4 /* IRKeyframeAnimationStrategies.swift in Sources */,
 				F0AFB6C41EF4D8AA0093EA3D /* IRAnimationsTVC.swift in Sources */,
 				F0270D8A1EF542A9004AED1A /* IRAnimateVC.swift in Sources */,
 			);
