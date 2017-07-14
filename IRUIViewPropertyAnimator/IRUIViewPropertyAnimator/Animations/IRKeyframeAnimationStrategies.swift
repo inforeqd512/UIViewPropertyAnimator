@@ -51,3 +51,22 @@ struct KFPositionKeyTimesStrategy : IRAnimationStrategy {
         
     }
 }
+
+struct KFPositionKeyTimesShakeStrategy : IRAnimationStrategy {
+    
+    func animate(view: UIView) {
+        
+        let layer = view.layer
+        let pointX = layer.position.x
+        
+        let animation = CAKeyframeAnimation()
+        animation.keyPath = "position.x"
+        animation.values = [pointX+0, pointX+10, pointX-10, pointX+10, pointX-5, pointX+5, pointX-5, pointX+0 ]
+        animation.keyTimes = [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1]
+        animation.duration = 1
+        
+        view.layer.add(animation, forKey: "positionkey")
+        
+        
+    }
+}
