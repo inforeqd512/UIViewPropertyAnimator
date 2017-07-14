@@ -29,3 +29,25 @@ struct KFPositionStrategy : IRAnimationStrategy {
         
     }
 }
+
+struct KFPositionKeyTimesStrategy : IRAnimationStrategy {
+    
+    func animate(view: UIView) {
+        
+        let layer = view.layer
+        let point = layer.position
+        
+        let finalPosition = CGPoint(x: point.x + 200, y: point.y)
+        
+        let animation = CAKeyframeAnimation()
+        animation.keyPath = "position"
+        animation.values = [point, CGPoint(x: point.x + 100, y: point.y), finalPosition]
+        animation.keyTimes = [0, 0.75, 1.0]
+        animation.duration = 2
+        
+        view.layer.add(animation, forKey: "positionkey")
+        
+        view.layer.position = finalPosition
+        
+    }
+}

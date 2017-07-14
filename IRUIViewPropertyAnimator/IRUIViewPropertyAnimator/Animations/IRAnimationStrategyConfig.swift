@@ -23,6 +23,8 @@ enum IRAnimationStrategyType {
     case ShapeLayerLineDashPhase
     case ShapeLayerQuarterCircleActivity
     case KFPosition
+    case KFPositionKeyTimes
+    
 }
 
 protocol IRAnimationStrategy {
@@ -48,7 +50,8 @@ struct IRAnimationStrategyFactory {
             IRAnimationStrategyType.ShapeLayerStrokeEnd : ShapeLayerStrokeEndStrategy(),
             IRAnimationStrategyType.ShapeLayerLineDashPhase : ShapeLayerLineDashPhaseStrategy(),
             IRAnimationStrategyType.ShapeLayerQuarterCircleActivity : ShapeLayerQuarterCircleActivityStrategy(),
-            IRAnimationStrategyType.KFPosition : KFPositionStrategy()
+            IRAnimationStrategyType.KFPosition : KFPositionStrategy(),
+            IRAnimationStrategyType.KFPositionKeyTimes : KFPositionKeyTimesStrategy()
     ]
     
     func strategyFor(type: IRAnimationStrategyType) -> IRAnimationStrategy {
