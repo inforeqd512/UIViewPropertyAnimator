@@ -23,9 +23,9 @@ struct KFPositionStrategy : IRAnimationStrategy {
         animation.path = path.cgPath
         animation.duration = 2
         
-        view.layer.add(animation, forKey: "positionkey")
+        layer.add(animation, forKey: "positionkey")
         
-        view.layer.position = finalPosition
+        layer.position = finalPosition
         
     }
 }
@@ -45,9 +45,9 @@ struct KFPositionKeyTimesStrategy : IRAnimationStrategy {
         animation.keyTimes = [0, 0.75, 1.0]
         animation.duration = 2
         
-        view.layer.add(animation, forKey: "positionkey")
+        layer.add(animation, forKey: "positionkey")
         
-        view.layer.position = finalPosition
+        layer.position = finalPosition
         
     }
 }
@@ -65,8 +65,28 @@ struct KFPositionKeyTimesShakeStrategy : IRAnimationStrategy {
         animation.keyTimes = [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1]
         animation.duration = 1
         
-        view.layer.add(animation, forKey: "positionkey")
+        layer.add(animation, forKey: "positionkey")
+    }
+}
+
+struct KFTwoAnimationStrategy : IRAnimationStrategy {
+    
+    func animate(view: UIView) {
         
+        let widthAnimation = CAKeyframeAnimation(keyPath: "borderWidth")
+        let widthValues = [1.0, 10.0, 5.0, 15.0, 0.5, 10.0, 2.0, 20.0, 0.0]
+        widthAnimation.values = widthValues
+        widthAnimation.calculationMode = kCAAnimationPaced
         
+        let colorAnimation = CAKeyframeAnimation(keyPath: "borderColor")
+        let colorValues = [UIColor.green.cgColor, UIColor.red.cgColor, UIColor.blue.cgColor]
+        colorAnimation.values = colorValues
+        colorAnimation.calculationMode = kCAAnimationPaced
+        
+        let group = CAAnimationGroup()
+        group.animations = [widthAnimation, colorAnimation]
+        group.duration = 5.0
+        
+        view.layer.add(group, forKey: "positionkey")
     }
 }

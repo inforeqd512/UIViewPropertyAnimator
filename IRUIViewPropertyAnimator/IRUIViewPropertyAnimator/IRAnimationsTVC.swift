@@ -17,6 +17,7 @@ struct IRTVSection {
 func sections() -> [IRTVSection] {
     let oneSection = IRTVSection(sectionSegueIdentifier: .showAnimation,
                                  model: [
+                                    IRAnimationStrategyType.KFTwoAnimation,
                                     IRAnimationStrategyType.KFPositionKeyTimesShake,
                                     IRAnimationStrategyType.KFPositionKeyTimes,
                                     IRAnimationStrategyType.KFPosition,
