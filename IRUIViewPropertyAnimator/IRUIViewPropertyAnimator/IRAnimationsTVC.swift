@@ -15,6 +15,15 @@ struct IRTVSection {
 
 
 func sections() -> [IRTVSection] {
+    
+    let keyframeSection = IRTVSection(sectionSegueIdentifier: .showAnimation,
+                                 model: [
+                                    IRAnimationStrategyType.KFTwoAnimation,
+                                    IRAnimationStrategyType.KFPositionKeyTimesShake,
+                                    IRAnimationStrategyType.KFPositionKeyTimes,
+                                    IRAnimationStrategyType.KFPosition
+        ])
+    
     let oneSection = IRTVSection(sectionSegueIdentifier: .showAnimation,
                                  model: [
                                     IRAnimationStrategyType.KFTwoAnimation,
@@ -55,6 +64,7 @@ func sections() -> [IRTVSection] {
         ])
     
     return [
+        keyframeSection,
         oneSection,
         twoSection,
         threeSection,
